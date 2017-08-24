@@ -14,7 +14,7 @@ function perm(string) {
 
   var ch;
   for (var i = 0; i < string.length; i++) {
-    ch = string.splice(i, 1)[0];
+    ch = string.splice(i, 1);
     CharsRem.push(ch);
     if (string.length == 0) {
       arr.push(CharsRem.slice());
