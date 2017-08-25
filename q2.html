@@ -5,31 +5,29 @@
     <meta charset="utf-8">
     <title></title>
     <script>
+          var arr = [];
+          var used = [];
+        function perm(string){
 
-function perm(string) {
-  var arr = [];
- var CharsRem = [];
-    if (string.length < 2){
-    return string};
+           var characters = string.split("");
+           var len = characters.length;
+          for (var i = 0; i < len; i++) {
+          var  ch = characters.splice(i, 1);
+            used.push(ch);
 
-  var ch;
-  for (var i = 0; i < string.length; i++) {
-    ch = string.splice(i, 1);
-    CharsRem.push(ch);
-    if (string.length == 0) {
-      arr.push(CharsRem.slice());
-    }
-    perm(input);
-    string.splice(i, 0, ch);
-    CharsRem.pop();
-  }
-  return arr;
-};
- var test = "ABC";
-var permute = perm(test);
-for(permute of permutations){
-  console.log(permute);
-}
+            if (characters.length == 0){
+              arr[arr.length] = used.join("");
+            }
+            perm(characters.join(""));
+            characters.splice(i, 0, ch);
+            used.pop();
+          }
+          return arr;
+        };
+        var perm = perm("ABC");
+        for(perm of perm){
+          console.log(perm);
+        }
 
 
     </script>
